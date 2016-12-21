@@ -1,0 +1,60 @@
+#!/bin/bash
+#  
+#  Script for intalling basic programs on GNU/Linux (Debian).
+#  Highly recommended after formattin or starting using GNU/Linux (Debian).
+#
+
+if [ "$(id -u)" -eq "0" ]; then
+    echo "Super User identified. Initializing installation."
+    echo -n "Do you want to include Oracle VirtualBox in the installation? [Y/n]: "
+    read ANSVB
+    if [ $ANSVB == "Y" || $ANSVB == "y" ]; then
+	DIST="$(lsb_release -a | grep Codename: | tr -d [:space:] | awk -F: '{print $2}')"
+	sudo echo "deb http://download.virtualbox.org/virtualbox/debian $DIST contrib" >> /etc/apt/sources.list
+	sudo wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+	sudo wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+	sudo apt-get -y install virtualbox-5.1
+	sudo apt-get -y install dkms
+    fi
+    sudo apt-get -y update
+    sudo apt-get -y install dropbox
+    sudo apt-get -y install vlc
+    sudo apt-get -y install bleachbit
+    sudo apt-get -y install gdebi
+    sudo apt-get -y install gimp
+    sudo apt-get -y install kolourpaint4
+    echo -n "Do you want to install qBitTorrent a Torrent Client? [Y/n]: "
+    read ANSQB
+    if [ $ANSQB == "Y" || $ANSQB == "y" ]; then
+	sudo apt-get install qbittorrent
+    fi
+    echo -n "Do you want to install Programming software? [Y/n]: "
+    read ANSDEV
+    if [ $ANSDEV == "Y" || $ANSDEV == "y" ]; then
+	sudo apt-get -y install emacs
+	sudo apt-get -y install openjdk-t-jdk
+	sudo apt-get -y install javacc
+	sudo apt-get -y install gcc
+	sudo apt-get -y install g++
+	sudo apt-get -y install alex
+	sudo apt-get -y install happy
+	sudo apt-get -y install cabal-install
+	sudo apt-get -y install ghci
+    fi
+    echo "Do you want to install LaTeX? It will take some time. [Y/n]: "
+    read ANSLA
+    if [ $ANSLA == "Y" || $ANSLA == "y" ]; then
+	sudo apt-get install latex*
+    fi
+    echo -n "Do you want to install the Security/Pentesting package? [Y/n]: "
+    read ANSSEC
+    if [ $ANSSEC == "Y" || $ANSSEC == "y" ]; then
+	sudo apt-get -y install nmap
+	sudo apt-get -y install wireshark
+	sudo apt-get -y install exiftool
+	sudo apt-get -y install wifite
+    fi
+else
+    echo "Not root privileges."
+    exit 1
+fi
