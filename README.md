@@ -4,28 +4,30 @@ Shell script for installation of basic programs for GNU/Linux Debian.
 Based on [GUTY517](https://github.com/GUTY517/Programas-en-bash)'s script.
 
 ## Programs the script installs
-	 - Dropbox
-	 - VLC
-	 - BleachBit
-	 - GDebi
-	 - GIMP
-	 - KolourPaint
-	 - qBittorrent **(Optional)**
-	 - Oracle VirtualBox **(Optional)**
-	 - LaTeX **(Optional)**
-	 ----
-	 Programming package **(Optional)**
-	 - GNU Emacs 24
-	 - Java
-	 - GCC
-	 - G++
-	 - Haskell
-	 ----
-	 Security/Pentesting package **(Optional)**
-	 - NMap
-	 - WireShark
-	 - ExifTool
-	 - WiFite
+
+..- Dropbox
+..- VLC
+..- BleachBit
+..- GDebi
+..- GIMP
+..- KolourPaint
+..- qBittorrent **(Optional)**
+..- Oracle VirtualBox **(Optional)**
+..- LaTeX **(Optional)**
+----
+Programming package **(Optional)**
+..- GNU Emacs 24
+..- Java
+..- GCC
+..- G++
+..- Haskell
+----
+Security/Pentesting package **(Optional)**
+..- NMap
+..- WireShark
+..- ExifTool
+..- WiFite
+
 ### Prerequisites
 
 - Root privileges.
